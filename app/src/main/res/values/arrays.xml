@@ -8,5 +8,6 @@
         <item>光线感应传感器</item>
         <item>磁场传感器</item>
         <item>距离传感器</item>
+        <item>计步传感器</item>
     </string-array>
 </resources>

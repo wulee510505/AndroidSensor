@@ -39,6 +39,10 @@
         <activity android:name=".activity.sensor.ProximityActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".activity.sensor.StepActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>

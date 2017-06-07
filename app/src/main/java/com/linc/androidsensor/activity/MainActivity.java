@@ -15,6 +15,7 @@ import com.linc.androidsensor.activity.sensor.LightActivity;
 import com.linc.androidsensor.activity.sensor.MagneticFleldActivity;
 import com.linc.androidsensor.activity.sensor.OrientationActivity;
 import com.linc.androidsensor.activity.sensor.ProximityActivity;
+import com.linc.androidsensor.activity.sensor.StepActivity;
 
 public class MainActivity extends Activity {
     private ListView mListView;
@@ -58,6 +59,10 @@ public class MainActivity extends Activity {
                         break;
                     case 6://proximity
                         intent.setClass(MainActivity.this, ProximityActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 7://step
+                        intent.setClass(MainActivity.this, StepActivity.class);
                         startActivity(intent);
                         break;
                 }
