@@ -27,7 +27,7 @@ public class StepActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_light);
+        setContentView(R.layout.activity_step);
         mTvInfo = (TextView)findViewById(R.id.tv_info);
 
 
@@ -36,10 +36,14 @@ public class StepActivity extends Activity {
         registerReceiver(mReceiver,filter);
 
         pedometer = new Pedometer(this);
-        pedometer.register();
-
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pedometer.register();
+    }
 
     class OnStepCountChangeReceiver extends BroadcastReceiver{
         @Override
@@ -51,8 +55,8 @@ public class StepActivity extends Activity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onPause() {
+        super.onPause();
         pedometer.unRegister();
     }
 }

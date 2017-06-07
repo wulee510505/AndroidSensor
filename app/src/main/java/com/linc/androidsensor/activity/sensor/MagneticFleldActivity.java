@@ -17,7 +17,7 @@ public class MagneticFleldActivity extends BaseSensorActivity {
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_light);
+        setContentView(R.layout.activity_magnetic_fleld);
         mTvInfo = (TextView)findViewById(R.id.tv_info);
         if(mSensor == null) {
             mTvInfo.setText("No Magnetic Fleld senor!");

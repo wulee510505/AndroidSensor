@@ -9,23 +9,34 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.linc.androidsensor.R;
+import com.linc.androidsensor.ShakeUtils;
 import com.linc.androidsensor.base.BaseSensorActivity;
 
 public class AccelerometerActivity extends BaseSensorActivity {
     private TextView mTvInfo;
     private float mGravity = SensorManager.STANDARD_GRAVITY-0.8f;
 
+    private ShakeUtils shakeUtils;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_accelerometer);
+
+        shakeUtils = new ShakeUtils(this);
+
         mTvInfo = (TextView)findViewById(R.id.tv_info);
         if(mSensor == null) {
             mTvInfo.setText("No Accelerometer senor!");
             Log.d("linc","no this sensor.");
         }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        shakeUtils.registerSensor();
     }
 
     @Override
@@ -60,4 +71,10 @@ public class AccelerometerActivity extends BaseSensorActivity {
         return Sensor.TYPE_ACCELEROMETER;
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        shakeUtils.unRegisterSensor();
+    }
 }
