@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sensors">
+        <item>设备传感器信息</item>
+        <item>方向传感器</item>
+        <item>陀螺仪</item>
+        <item>加速度传感器</item>
+        <item>光线感应传感器</item>
+        <item>磁场传感器</item>
+        <item>距离传感器</item>
+    </string-array>
+</resources>
