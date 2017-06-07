@@ -1,5 +1,5 @@
 # AndroidSensor
 Android 传感器
 
-![](https://github.com/wulee510505/AndroidSensor/screenshots/sensor.jpg)
+![](https://raw.githubusercontent.com/wulee510505/AndroidSensor/master/screenshots/sensor.jpg)
 
