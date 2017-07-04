@@ -12,6 +12,8 @@ import com.linc.androidsensor.base.BaseSensorActivity;
 
 public class LightActivity extends BaseSensorActivity {
     private TextView mTvInfo;
+    private  boolean isBright ;//true 代表亮      false 代表暗
+    private final float criticalValue = 40.0f;  //  40.0f 代表人视觉的亮暗临界值
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,11 @@ public class LightActivity extends BaseSensorActivity {
         Log.d("linc", "value size: " + sensorEvent.values.length);
         float accuracy = sensorEvent.accuracy;
 
-        mTvInfo.setText("当前光照强度：" + sensorEvent.values[0] + " 勒克斯");
+        isBright = sensorEvent.values[0] > criticalValue ? true : false ;//  定义 > 40.0f 为亮，<= 40.0f 为暗
+
+        String brightStr = isBright ? "亮 ":"暗 ";
+
+        mTvInfo.setText("当前光照强度：" + sensorEvent.values[0] + " lux \n" + brightStr);
     }
 
     @Override
@@ -43,4 +49,7 @@ public class LightActivity extends BaseSensorActivity {
         return Sensor.TYPE_LIGHT;
     }
 
+    public boolean getBright() {
+        return  isBright;
+    }
 }

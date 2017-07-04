@@ -49,7 +49,7 @@ public class StepActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             if(TextUtils.equals(ACTION_ON_STEP_COUNT_CHANGE,intent.getAction())){
-                mTvInfo.setText("步行总数："+ pedometer.getStepCount()); // 支付宝步数统计就是依据了此原理
+                mTvInfo.setText("今日步数："+ pedometer.getStepCount()); // 支付宝步数统计就是依据了此原理
             }
         }
     }

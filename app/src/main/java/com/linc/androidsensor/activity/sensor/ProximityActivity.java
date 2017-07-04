@@ -12,13 +12,15 @@ import com.linc.androidsensor.base.BaseSensorActivity;
 
 public class ProximityActivity extends BaseSensorActivity {
     private TextView mTvInfo;
-
+    private TextView mTvTips;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proximity);
         mTvInfo = (TextView)findViewById(R.id.tv_info);
+        mTvTips= (TextView)findViewById(R.id.tv_tips);
+
         if(mSensor == null) {
             mTvInfo.setText("No Proximity senor!");
             Log.d("linc","no this sensor.");
@@ -32,6 +34,11 @@ public class ProximityActivity extends BaseSensorActivity {
         if (its != null) {
             //经过测试，当手贴近距离感应器的时候its[0]返回值为0.0，当手离开时返回4.0
             mTvInfo .setText(its[0] + "");
+            if(its[0] > 0 ){
+                mTvTips.setText("远离手机");
+            }else{
+                mTvTips.setText("靠近手机");
+            }
         }
     }
 

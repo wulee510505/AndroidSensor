@@ -30,7 +30,7 @@ public class MagneticFleldActivity extends BaseSensorActivity {
         Log.d("linc", "value size: " + sensorEvent.values.length);
         float accuracy = sensorEvent.accuracy;
 
-        mTvInfo.setText("当前磁场强度：" + sensorEvent.values[0] );
+        mTvInfo.setText("当前磁场强度：\n" + " x:"+ sensorEvent.values[0] + "\n y:"+ sensorEvent.values[1] + "\n z:" +sensorEvent.values[2]);
     }
 
     @Override
